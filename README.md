@@ -9,16 +9,20 @@ Camada de Modelo (Model):
 
 Anime:
 Representa a entidade principal do seu domínio, com atributos como título, gênero, ano, episódios e se é um filme.
-Camada de Serviço (Service):
+Camada de 
+
+Serviço (Service):
 
 AnimeService:
 Define a interface para operações relacionadas a Anime, como criar, listar, obter por ID, atualizar e excluir.
 AnimeServiceImpl implementa essa interface e fornece a lógica de negócios para essas operações.
+
 Camada de Controle (Controller):
 
 AnimeFilter:
 Controlador REST que expõe endpoints para realizar operações CRUD em Anime.
 Utiliza AnimeService para executar as operações necessárias.
+
 Configuração do Spring:
 
 Application:
