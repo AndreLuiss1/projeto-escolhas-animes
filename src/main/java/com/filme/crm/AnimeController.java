@@ -1,14 +1,18 @@
 package com.filme.crm;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/animes")
+@RequestMapping("/v1/animes")
 public class AnimeController {
-	
+
     private final List<Anime> animes;
+
+    @Autowired
+    private AnimeService animeService;
 
     public AnimeController(List<Anime> animes) {
         this.animes = animes;
@@ -21,7 +25,7 @@ public class AnimeController {
 
     @PostMapping
     public void adicionarAnime(@RequestBody Anime anime) {
-        animes.add(anime);
+        animeService.adicionarAnime(anime);
     }
 
     @GetMapping("/filtrar")
@@ -29,8 +33,6 @@ public class AnimeController {
                                      @RequestParam(required = false) Integer ano,
                                      @RequestParam(required = false) Integer episodios,
                                      @RequestParam(required = false) Boolean filme) {
-        // Implemente a lógica de filtragem conforme necessário
-        // Esta implementação de exemplo apenas retorna todos os animes
-        return animes;
+        return animeService.filtrarAnimes(genero, ano, episodios, filme);
     }
 }
