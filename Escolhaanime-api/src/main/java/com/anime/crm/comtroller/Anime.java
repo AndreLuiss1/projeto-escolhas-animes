@@ -1,3 +1,5 @@
+// Representa a entidade Anime no banco de dados
+
 package com.anime.crm.comtroller;
 
 import javax.persistence.Entity;
